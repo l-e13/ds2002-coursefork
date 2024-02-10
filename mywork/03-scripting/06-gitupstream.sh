@@ -5,4 +5,4 @@ git fetch upstream
 
 git merge upstream main/main
 
-git staus
+git status
