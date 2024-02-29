@@ -1,0 +1,11 @@
+#!/bin/bash
+
+curl https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/United_States_women%27s_national_soccer_team_logo.svg/1200px-United_States_women%27s_national_soccer_team_logo.svg.png > usa_soccer.png
+
+aws s3 cp usa_soccer.png s3://ds2002-jww2fj/
+
+URL=$(aws s3 presign --expires-in 604800 s3://ds2002-jww2fj/usa_soccer.png)
+
+echo $URL
+
+# Presigned URL: https://ds2002-jww2fj.s3.us-east-1.amazonaws.com/usa_soccer.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAZQ3DOMJMV7NWTV4N%2F20240229%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240229T160737Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=FwoGZXIvYXdzEDEaDMTxN6qy3wFVpVvhRyLEAfccJr5aaVy8U0014yNpnzjdnyv0wqu90RcP9Z2zy%2BP2xWJPIKoCDPx1b1iURt4EFGIZ8fdMkHOnv219sbGdMp%2B%2FiYxhKK9c%2FUdPaMeNc9V7Y4GewKCcMM6Rz%2B2EttghDXPcjJjyQfTxZsu6jvWRX%2BBfTtDl2GLZBfC3%2BjEAuXlKtGysgElIpJwePKEVxWmJIxG3J40cdAwgFDA5Y%2B3G%2B5pxP%2BW%2FDyy4KDCB2GjmwyaEPe%2FcqSToO7QaQnKoSQwi3amuAloo59KCrwYyLSa4IPw50Qt3%2FcpDMdNfgeWN8J%2BNICWA39gjtte7vbdT3bhEILks8Yz6xh2uhg%3D%3D&X-Amz-Signature=b7675b978be7578155d746b3c4389db59112b3bf66043734399655b0586be12b
