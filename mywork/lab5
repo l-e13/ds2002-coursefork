@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/apt upgrade -y
+/usr/bin/apt install python3 jq git -y
