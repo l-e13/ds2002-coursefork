@@ -2,8 +2,8 @@
 
 import json
 
-# valid JSON data
-data = '{"valid_json_key": "value"}'
+# invalid JSON data
+data = '{"invalid_json_key": "value"}'
 
 try:
   # Attempt to load the JSON data
